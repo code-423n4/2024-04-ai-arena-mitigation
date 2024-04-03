@@ -1,96 +1,60 @@
-# ✨ So you want to run an audit
-
-This `README.md` contains a set of checklists for our audit collaboration.
-
-Your audit will use two repos: 
-- **an _audit_ repo** (this one), which is used for scoping your audit and for providing information to wardens
-- **a _findings_ repo**, where issues are submitted (shared with you after the audit) 
-
-Ultimately, when we launch the audit, this repo will be made public and will contain the smart contracts to be reviewed and all the information needed for audit participants. The findings repo will be made public after the audit report is published and your team has mitigated the identified issues.
-
-Some of the checklists in this doc are for **C4 (🐺)** and some of them are for **you as the audit sponsor (⭐️)**.
-
----
-
-# Audit setup
-
-## 🐺 C4: Set up repos
-- [ ] Create a new private repo named `YYYY-MM-sponsorname` using this repo as a template.
-- [ ] Rename this repo to reflect audit date (if applicable)
-- [ ] Rename audit H1 below
-- [ ] Update pot sizes
-  - [ ] Remove the "Bot race findings opt out" section if there's no bot race.
-- [ ] Fill in start and end times in audit bullets below
-- [ ] Add link to submission form in audit details below
-- [ ] Add the information from the scoping form to the "Scoping Details" section at the bottom of this readme.
-- [ ] Add matching info to the Code4rena site
-- [ ] Add sponsor to this private repo with 'maintain' level access.
-- [ ] Send the sponsor contact the url for this repo to follow the instructions below and add contracts here. 
-- [ ] Delete this checklist.
-
-# Repo setup
-
-## ⭐️ Sponsor: Add code to this repo
-
-- [ ] Create a PR to this repo with the below changes:
-- [ ] Confirm that this repo is a self-contained repository with working commands that will build (at least) all in-scope contracts, and commands that will run tests producing gas reports for the relevant contracts.
-- [ ] Please have final versions of contracts and documentation added/updated in this repo **no less than 48 business hours prior to audit start time.**
-- [ ] Be prepared for a 🚨code freeze🚨 for the duration of the audit — important because it establishes a level playing field. We want to ensure everyone's looking at the same code, no matter when they look during the audit. (Note: this includes your own repo, since a PR can leak alpha to our wardens!)
-
-## ⭐️ Sponsor: Repo checklist
-
-- [ ] Modify the [Overview](#overview) section of this `README.md` file. Describe how your code is supposed to work with links to any relevent documentation and any other criteria/details that the auditors should keep in mind when reviewing. (Here are two well-constructed examples: [Ajna Protocol](https://github.com/code-423n4/2023-05-ajna) and [Maia DAO Ecosystem](https://github.com/code-423n4/2023-05-maia))
-- [ ] Review the Gas award pool amount, if applicable. This can be adjusted up or down, based on your preference - just flag it for Code4rena staff so we can update the pool totals across all comms channels.
-- [ ] Optional: pre-record a high-level overview of your protocol (not just specific smart contract functions). This saves wardens a lot of time wading through documentation.
-- [ ] [This checklist in Notion](https://code4rena.notion.site/Key-info-for-Code4rena-sponsors-f60764c4c4574bbf8e7a6dbd72cc49b4#0cafa01e6201462e9f78677a39e09746) provides some best practices for Code4rena audit repos.
-
-## ⭐️ Sponsor: Final touches
-- [ ] Review and confirm the pull request created by the Scout (technical reviewer) who was assigned to your contest. *Note: any files not listed as "in scope" will be considered out of scope for the purposes of judging, even if the file will be part of the deployed contracts.*
-- [ ] Check that images and other files used in this README have been uploaded to the repo as a file and then linked in the README using absolute path (e.g. `https://github.com/code-423n4/yourrepo-url/filepath.png`)
-- [ ] Ensure that *all* links and image/file paths in this README use absolute paths, not relative paths
-- [ ] Check that all README information is in markdown format (HTML does not render on Code4rena.com)
-- [ ] Delete this checklist and all text above the line below when you're ready.
-
----
-
 # AI Arena audit details
-- Total Prize Pool: $21000 in USDC
-  - HM awards: XXX XXX USDC (Notion: HM (main) pool)
-  - (remove this line if there is no Analysis pool) Analysis awards: XXX XXX USDC (Notion: Analysis pool)
- 
-  - (remove this line if there is no Bot race) Bot Race awards: XXX XXX USDC (Notion: Bot Race pool)
- 
-  - Judge awards: $3000 in USDC
-  - Lookout awards: XXX XXX USDC (Notion: Sum of Pre-sort fee + Pre-sort early bonus)
-  - Scout awards: $500 USDC (Notion: Scout fee - but usually $500 USDC)
-  - Mitigation Review: $18000 in USDC (*Opportunity goes to top 3 certified wardens based on placement in this audit.*)
+- Total Prize Pool: $21,000 in USDC
+  - HM awards: $18,000 in USDC
+  - Judge awards: $3,000 in USDC
 - Join [C4 Discord](https://discord.gg/code4rena) to register
 - Submit findings [using the C4 form](https://code4rena.com/contests/2024-04-ai-arena-mitigation/submit)
 - [Read our guidelines for more details](https://docs.code4rena.com/roles/wardens)
 - Starts April 8, 2024 20:00 UTC
 - Ends April 15, 2024 20:00 UTC
 
-## This is a Private audit
+## Important note 
 
-This audit repo and its Discord channel are accessible to **certified wardens only.** Participation in private audits is bound by:
+Each warden must submit a mitigation review for *every High and Medium finding* from the parent audit that is listed as in-scope for the mitigation review. **Incomplete mitigation reviews will not be eligible for awards.**
 
-1. Code4rena's [Certified Contributor Terms and Conditions](https://github.com/code-423n4/code423n4.com/blob/main/_data/pages/certified-contributor-terms-and-conditions.md)
-2. C4's [Certified Contributor Code of Professional Conduct](https://code4rena.notion.site/Code-of-Professional-Conduct-657c7d80d34045f19eee510ae06fef55)
+## Findings being mitigated
 
-*All discussions regarding private audits should be considered private and confidential, unless otherwise indicated.*
+Mitigations of all High and Medium issues will be considered in-scope and listed here.
 
-Please review the following confidentiality requirements carefully, and if anything is unclear, ask questions in the private audit channel in the C4 Discord.
+- [H-01: A locked fighter can be transferred; leads to game server unable to commit transactions, and unstoppable fighters](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/1709)
+- [H-02: Non-transferable GameItems can be transferred with GameItems::safeBatchTransferFrom(...)](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/575)
+- [H-03: Players have complete freedom to customize the fighter NFT when calling redeemMintPass and can redeem fighters of types Dendroid and with rare attributes](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/366)
+- [H-04: Since you can reroll with a different fighterType than the NFT you own, you can reroll bypassing maxRerollsAllowed and reroll attributes based on a different fighterType](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/306)
+- [H-05: Malicious user can stake an amount which causes zero curStakeAtRisk on a loss but equal rewardPoints to a fair user on a win](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/116)
+- [H-06: FighterFarm:: reroll won't work for nft id greator than 255 due to input limited to uint8](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/68)
+- [H-07:Fighters cannot be minted after the initial generation due to uninitialized numElements mapping](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/45)
+- [H-08: Player can mint more fighter NFTs during claim of rewards by leveraging reentrancy on the claimRewards() function](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/37)
 
->>DRAG IN CLASSIFIED IMAGE HERE
+- [M-01: Almost all rarity rank combinations cannot be, and are not uniformly, generated](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/1979)
+- [M-02: Minter / Staker / Spender roles can never be revoked`..,](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/1507)
+- [M-03: Fighter created by mintFromMergingPool can have arbitrary weight and element](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/932)
+- [M-04: DoS in MergingPool::claimRewards function and potential DoS in RankedBattle::claimNRN function if called after a significant amount of rounds passed.](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/868)
+- [M-05: Can mint NFT with the desired attributes by reverting transaction](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/376)
+- [M-06: NFTs can be transferred even if StakeAtRisk remains, so the user's win cannot be recorded on the chain due to underflow, and can recover past losses that can't be recovered(steal protocol's token)](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/137)
+- [M-07: Erroneous probability calculation in physical attributes can lead to significant issues](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/112)
+- [M-08: Burner role can not be revoked](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/47)
+- [M-09: Constraints of dailyAllowanceReplenishTime and allowanceRemaining during mint() can be bypassed by using alias accounts & safeTransferFrom()](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/43)
 
-## Automated Findings / Publicly Known Issues
+[ ⭐️ SPONSORS ADD INFO HERE ]
 
-The 4naly3er report can be found [here](https://github.com/code-423n4/2024-04-ai-arena-mitigation/blob/main/4naly3er-report.md).
+## Overview of changes
 
+Please provide context about the mitigations that were applied if applicable and identify any areas of specific concern.
 
+## Mitigations to be reviewed
 
-_Note for C4 wardens: Anything included in this `Automated Findings / Publicly Known Issues` section is considered a publicly known issue and is ineligible for awards._
-## 🐺 C4: Begin Gist paste here (and delete this line)
+### Branch
+[ ⭐️ SPONSORS ADD A LINK TO THE BRANCH IN YOUR REPO CONTAINING ALL PRS ]
 
+### Individual PRs
+[ ⭐️ SPONSORS ADD ALL RELEVANT PRs TO THE TABLE BELOW:]
 
+Wherever possible, mitigations should be provided in separate pull requests, one per issue. If that is not possible (e.g. because several audit findings stem from the same core problem), then please link the PR to all relevant issues in your findings repo. 
 
+| URL | Mitigation of | Purpose | 
+| ----------- | ------------- | ----------- |
+| https://github.com/your-repo/sample-contracts/pull/XXX | H-01 | This mitigation does XYZ | 
+
+## Out of Scope
+
+Please list any High and Medium issues that were judged as valid but you have chosen not to fix.

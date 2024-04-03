@@ -1,4 +1,4 @@
-# AI Arena audit details
+# AI Arena Mitigation Review details
 - Total Prize Pool: $21,000 in USDC
   - HM awards: $18,000 in USDC
   - Judge awards: $3,000 in USDC

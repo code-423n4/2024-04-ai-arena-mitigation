@@ -26,27 +26,27 @@ Mitigations of all High and Medium issues will be considered in-scope and listed
 
 ## Overview of changes
 
-Fixed issues with tokenId restrictions: There was an issue when re-rolling for fighters with token IDs greater than 255 which has been addressed.
+- Fixed issues with tokenId restrictions: There was an issue when re-rolling for fighters with token IDs greater than 255 which has been addressed.
 
-Override fixes in safeTransferFrom
+- Override fixes in safeTransferFrom
 
-DNA generation fixes: Issues in the generation process during minting from the merging pool and in the re-roll and claim functions have been fixed.
+- DNA generation fixes: Issues in the generation process during minting from the merging pool and in the re-roll and claim functions have been fixed.
 
-Non-transferable GameItems fix: There was a bug that allowed non-transferable game items to be transferred, which has been fixed.
+- Non-transferable GameItems fix: There was a bug that allowed non-transferable game items to be transferred, which has been fixed.
 
-Mitigation of reentrancy in claimRewards: Reentrancy attack was mitigated.
+- Mitigation of reentrancy in claimRewards: Reentrancy attack was mitigated.
 
-Uninitialized numElements variable: An uninitialized variable numElements was fixed.
+- Uninitialized numElements variable: An uninitialized variable numElements was fixed.
 
-ECRecover vulnerability: A known vulnerability with ECRecover was addressed.
+- ECRecover vulnerability: A known vulnerability with ECRecover was addressed.
 
-Update to ranking and staking mechanisms: There were fixes to staking requirements and an update to ranked battle contracts.
+- Update to ranking and staking mechanisms: There were fixes to staking requirements and an update to ranked battle contracts.
 
 Areas of specific concern would be:
 
-Reentrancy vulnerabilities.
-Signature malleability in ECRecover.
-Non-transferable items being transferred.
+- Reentrancy vulnerabilities.
+- Signature malleability in ECRecover.
+- Non-transferable items being transferred.
 
 ## Mitigations to be reviewed
 

@@ -35,8 +35,6 @@ Mitigations of all High and Medium issues will be considered in-scope and listed
 - [M-08: Burner role can not be revoked](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/47)
 - [M-09: Constraints of dailyAllowanceReplenishTime and allowanceRemaining during mint() can be bypassed by using alias accounts & safeTransferFrom()](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/43)
 
-[ ⭐️ SPONSORS ADD INFO HERE ]
-
 ## Overview of changes
 
 Fixed issues with tokenId restrictions: There was an issue when re-rolling for fighters with token IDs greater than 255 which has been addressed.

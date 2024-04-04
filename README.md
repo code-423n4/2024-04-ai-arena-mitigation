@@ -75,11 +75,11 @@ These are additional changes that will be in scope and were addressed outside of
 
 | URL | Mitigation of | Original Issue |Purpose | 
 | ----------- | ----------- |----------- |----------- |
-| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/5 | QA-1 | #48 | Mitigated claimRewards reentrancy, fixed uninitialized numElements and fixed points intialization to match maxId | 
-| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/8 | QA-2 | #507 | Fixed Ecrecover is known to be vulnerable to signature malleability |
-| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/13 | QA-3 | #704 | Mititgated QA Report for #704 | 
-| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/14 | QA-4 | #1490 | Mitigated unstakeNRN and setNewRound and mint upto MAX_SUPPLY | 
-| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/15 | NEW-1 | N/A | Admin setup function and new require conditions for staking and unstaking. Unstaking require correction | 
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/5 | E-1 | #48 | Mitigated claimRewards reentrancy, fixed uninitialized numElements and fixed points intialization to match maxId | 
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/8 | E-2 | #507 | Fixed Ecrecover is known to be vulnerable to signature malleability |
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/13 | E-3 | #704 | Mititgated QA Report for #704 | 
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/14 | E-4 | #1490 | Mitigated unstakeNRN and setNewRound and mint upto MAX_SUPPLY | 
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/15 | E-1 | N/A | Admin setup function and new require conditions for staking and unstaking. Unstaking require correction | 
 
 
 ## Out of Scope

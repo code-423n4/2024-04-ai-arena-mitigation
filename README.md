@@ -39,22 +39,51 @@ Mitigations of all High and Medium issues will be considered in-scope and listed
 
 ## Overview of changes
 
-Please provide context about the mitigations that were applied if applicable and identify any areas of specific concern.
+Fixed issues with tokenId restrictions: There was an issue when re-rolling for fighters with token IDs greater than 255 which has been addressed.
+
+Override fixes in safeTransferFrom
+
+DNA generation fixes: Issues in the generation process during minting from the merging pool and in the re-roll and claim functions have been fixed.
+
+Non-transferable GameItems fix: There was a bug that allowed non-transferable game items to be transferred, which has been fixed.
+
+Mitigation of reentrancy in claimRewards: Reentrancy attack was mitigated.
+
+Uninitialized numElements variable: An uninitialized variable numElements was fixed.
+
+ECRecover vulnerability: A known vulnerability with ECRecover was addressed.
+
+Update to ranking and staking mechanisms: There were fixes to staking requirements and an update to ranked battle contracts.
+
+Areas of specific concern would be:
+
+Reentrancy vulnerabilities.
+Signature malleability in ECRecover.
+Non-transferable items being transferred.
 
 ## Mitigations to be reviewed
 
 ### Branch
-[ ⭐️ SPONSORS ADD A LINK TO THE BRANCH IN YOUR REPO CONTAINING ALL PRS ]
+[Mitigations branch](https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/15)
 
 ### Individual PRs
-[ ⭐️ SPONSORS ADD ALL RELEVANT PRs TO THE TABLE BELOW:]
-
-Wherever possible, mitigations should be provided in separate pull requests, one per issue. If that is not possible (e.g. because several audit findings stem from the same core problem), then please link the PR to all relevant issues in your findings repo. 
 
 | URL | Mitigation of | Purpose | 
 | ----------- | ------------- | ----------- |
-| https://github.com/your-repo/sample-contracts/pull/XXX | H-01 | This mitigation does XYZ | 
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/1 | #68 | Fixed reRoll for fighters with tokenIds greater than 255 | 
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/2 | #739 | Fixed safeTransferFrom override with data | 
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/3 | #578 | Fix dna generation in mintFromMergingPool | 
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/4 | #575 | fixed Non-transferable GameItems being transferred with GameItems::safeBatchTransferFrom | 
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/5 | #48 | Mitigated claimRewards reentrancy, fixed uninitialized numElements and fixed points intialization to match maxId | 
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/8 | #507 | Fixed Ecrecover is known to be vulnerable to signature malleability | 
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/9 | #137 | Mititgation for NFTs can be transferred even if StakeAtRisk remains, so the user's win cannot be recorded on the chain due to underflow, and can recover past losses that can't be recovered(steal protocol's token) | 
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/10 | #366 | Mitigation for Players have complete freedom to customize the fighter NFT when calling redeemMintPass and can redeem fighters of types Dendroid and with rare attributes | 
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/11 | #1017 | Updated dna generation in reRoll and updated dna generation in claimFighters | 
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/12 | #868 | Mitigation for DoS in MergingPool::claimRewards function and potential DoS in RankedBattle::claimNRN function if called after a significant amount of rounds passed.| 
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/13 | #704 | Mititgated QA Report for #704 | 
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/14 | #1490 | Mitigated unstakeNRN and setNewRound and mint upto MAX_SUPPLY | 
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/15 | N/A | Admin setup function and new require conditions for staking and unstaking. Unstaking require correction | 
 
 ## Out of Scope
 
-Please list any High and Medium issues that were judged as valid but you have chosen not to fix.
+N/A

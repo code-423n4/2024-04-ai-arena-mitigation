@@ -10,7 +10,7 @@
 
 ## Important note 
 
-Each warden must submit a mitigation review for *every High and Medium finding* from the parent audit that is listed as in-scope for the mitigation review along with the *Additional Scope to be Reviewed* section.  **Incomplete mitigation reviews will not be eligible for awards.**
+Each warden must submit a mitigation review for *every* individual PR listed in the `Scope` section below. **Incomplete mitigation reviews will not be eligible for awards.**
 
 ## Findings being mitigated
 
@@ -48,38 +48,36 @@ Areas of specific concern would be:
 - Signature malleability in ECRecover.
 - Non-transferable items being transferred.
 
-## Mitigations to be reviewed
+## Scope
 
 ### Branch
 [Mitigations branch](https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/15)
 
-### Individual PRs
+### Mitigations of High & Medium Severity Issues
 
 | URL | Mitigation of | Original Issue | Purpose | 
 | ----------- | ------------- | ----------- | ----------- |
-| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/2 | H-01 Dupe | #739 | Fixed safeTransferFrom override with data | 
-| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/4 | H-02 | #575 | fixed Non-transferable GameItems being transferred with GameItems::safeBatchTransferFrom | 
-| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/10 | H-03 | #366 | Mitigation for Players have complete freedom to customize the fighter NFT when calling redeemMintPass and can redeem fighters of types Dendroid and with rare attributes | 
-| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/1 | H-06 | #68 | Fixed reRoll for fighters with tokenIds greater than 255 | 
-| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/12 | M-04 | #868 | Mitigation for DoS in MergingPool::claimRewards function and potential DoS in RankedBattle::claimNRN function if called after a significant amount of rounds passed.|
-| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/11 | M-05 Dupe | #1017 | Updated dna generation in reRoll and updated dna generation in claimFighters | 
-| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/3 | M-05 Dupe | #578 | Fix dna generation in mintFromMergingPool |  
-| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/9 | M-06 | #137 | Mititgation for NFTs can be transferred even if StakeAtRisk remains, so the user's win cannot be recorded on the chain due to underflow, and can recover past losses that can't be recovered(steal protocol's token) |
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/2 | H-01 | [#739](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/739) | Fixed safeTransferFrom override with data | 
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/4 | H-02 | [#575](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/575) | fixed Non-transferable GameItems being transferred with GameItems::safeBatchTransferFrom | 
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/10 | H-03 | [#366](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/366) | Mitigation for Players have complete freedom to customize the fighter NFT when calling redeemMintPass and can redeem fighters of types Dendroid and with rare attributes | 
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/1 | H-06 | [#68](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/68) | Fixed reRoll for fighters with tokenIds greater than 255 | 
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/12 | M-04 | [#868](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/868) | Mitigation for DoS in MergingPool::claimRewards function and potential DoS in RankedBattle::claimNRN function if called after a significant amount of rounds passed.|
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/11 | M-05A | [#1017](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/1017) | Updated dna generation in reRoll and updated dna generation in claimFighters | 
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/3 | M-05B | [#578](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/578) | Fix dna generation in mintFromMergingPool |  
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/9 | M-06 | [#137](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/137) | Mititgation for NFTs can be transferred even if StakeAtRisk remains, so the user's win cannot be recorded on the chain due to underflow, and can recover past losses that can't be recovered(steal protocol's token) |
 
 
-## Additional scope to be reviewed
+### Additional scope to be reviewed
 
-### Individual PRs
-
-These are additional changes that will be in scope and were addressed outside of direct mitigation. (EXTRA Scope)
+These are additional changes that will be in scope.
 
 | URL | Mitigation of | Original Issue |Purpose | 
 | ----------- | ----------- |----------- |----------- |
-| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/5 | E-1 | #48 | Mitigated claimRewards reentrancy, fixed uninitialized numElements and fixed points intialization to match maxId | 
-| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/8 | E-2 | #507 | Fixed Ecrecover is known to be vulnerable to signature malleability |
-| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/13 | E-3 | #704 | Mititgated QA Report for #704 | 
-| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/14 | E-4 | #1490 | Mitigated unstakeNRN and setNewRound and mint upto MAX_SUPPLY | 
-| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/15 | E-1 | N/A | Admin setup function and new require conditions for staking and unstaking. Unstaking require correction | 
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/5 | ADD-01 | [#48](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/48) | Mitigated claimRewards reentrancy, fixed uninitialized numElements and fixed points intialization to match maxId | 
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/8 | ADD-02 | [#507](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/507) | Fixed Ecrecover is known to be vulnerable to signature malleability |
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/13 | ADD-03 | [#704](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/704) | Mititgated QA Report for #704 | 
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/14 | ADD-04 | [#1490](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/1490) | Mitigated unstakeNRN and setNewRound and mint upto MAX_SUPPLY | 
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/15 | ADD-05 | N/A | Admin setup function and new require conditions for staking and unstaking. Unstaking require correction | 
 
 
 ## Out of Scope

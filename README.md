@@ -10,7 +10,7 @@
 
 ## Important note 
 
-Each warden must submit a mitigation review for *every High and Medium finding* from the parent audit that is listed as in-scope for the mitigation review. **Incomplete mitigation reviews will not be eligible for awards.**
+Each warden must submit a mitigation review for *every High and Medium finding* from the parent audit that is listed as in-scope for the mitigation review along with the *Additional Scope to be Reviewed* section.  **Incomplete mitigation reviews will not be eligible for awards.**
 
 ## Findings being mitigated
 

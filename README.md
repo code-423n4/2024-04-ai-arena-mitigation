@@ -3,7 +3,7 @@
   - HM awards: $18,000 in USDC
   - Judge awards: $3,000 in USDC
 - Join [C4 Discord](https://discord.gg/code4rena) to register
-- Submit findings [using the C4 form](https://code4rena.com/contests/2024-04-ai-arena-mitigation/submit)
+- Submit findings [using the C4 form](https://code4rena.com/audits/2024-04-ai-arena-mitigation-review/submit)
 - [Read our guidelines for more details](https://docs.code4rena.com/roles/wardens)
 - Starts April 8, 2024 20:00 UTC
 - Ends April 15, 2024 20:00 UTC

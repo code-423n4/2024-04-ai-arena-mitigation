@@ -78,6 +78,8 @@ These are additional changes that will be in scope.
 | https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/13 | ADD-03 | [#704](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/704) | Mititgated QA Report for #704 | 
 | https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/14 | ADD-04 | [#1490](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/1490) | Mitigated unstakeNRN and setNewRound and mint upto MAX_SUPPLY | 
 | https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/15 | ADD-05 | N/A | Admin setup function and new require conditions for staking and unstaking. Unstaking require correction | 
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/16/commits/d81beee0df9c5465fe3ae954ce41300a9dd60b7f | N/A | N/A | Mitigation for gas intensive setUpAirdrop function and airdrop mechanism. Missing finalized test for new airdrop mechanism but working Airdrop script based on merkle root and proof. | 
+
 
 
 ## Out of Scope

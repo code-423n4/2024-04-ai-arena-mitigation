@@ -18,10 +18,15 @@ Mitigations of all High and Medium issues will be considered in-scope and listed
 - [H-01: A locked fighter can be transferred; leads to game server unable to commit transactions, and unstoppable fighters](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/1709)
 - [H-02: Non-transferable GameItems can be transferred with GameItems::safeBatchTransferFrom(...)](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/575)
 - [H-03: Players have complete freedom to customize the fighter NFT when calling redeemMintPass and can redeem fighters of types Dendroid and with rare attributes](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/366)
+- [H-04: Since you can reroll with a different fighterType than the NFT you own, you can reroll bypassing maxRerollsAllowed and reroll attributes based on a different fighterType](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/306)
 - [H-06: FighterFarm:: reroll won't work for nft id greator than 255 due to input limited to uint8](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/68)
+- [H-07:Fighters cannot be minted after the initial generation due to uninitialized numElements mapping](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/45)
+- [H-08: Player can mint more fighter NFTs during claim of rewards by leveraging reentrancy on the claimRewards() function](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/37)
+- [M-03: Fighter created by mintFromMergingPool can have arbitrary weight and element](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/932)
 - [M-04: DoS in MergingPool::claimRewards function and potential DoS in RankedBattle::claimNRN function if called after a significant amount of rounds passed.](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/868)
 - [M-05: Can mint NFT with the desired attributes by reverting transaction](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/376)
 - [M-06: NFTs can be transferred even if StakeAtRisk remains, so the user's win cannot be recorded on the chain due to underflow, and can recover past losses that can't be recovered(steal protocol's token)](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/137)
+- [M-08: Burner role can not be revoked](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/47)
 
 
 ## Overview of changes
@@ -60,12 +65,16 @@ Areas of specific concern would be:
 | https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/2 | H-01 | [#739](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/739) | Fixed safeTransferFrom override with data | 
 | https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/4 | H-02 | [#575](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/575) | fixed Non-transferable GameItems being transferred with GameItems::safeBatchTransferFrom | 
 | https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/10 | H-03 | [#366](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/366) | Mitigation for Players have complete freedom to customize the fighter NFT when calling redeemMintPass and can redeem fighters of types Dendroid and with rare attributes | 
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/17/ | H-04 | [#306](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/306) |  | 
 | https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/1 | H-06 | [#68](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/68) | Fixed reRoll for fighters with tokenIds greater than 255 | 
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/7 | H-07 | [#45](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/45) |  | 
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/6 | H-08 | [#37](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/37) |  | 
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/16 | M-03 | [#932](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/932) |  | 
 | https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/12 | M-04 | [#868](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/868) | Mitigation for DoS in MergingPool::claimRewards function and potential DoS in RankedBattle::claimNRN function if called after a significant amount of rounds passed.|
 | https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/11 | M-05A | [#1017](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/1017) | Updated dna generation in reRoll and updated dna generation in claimFighters | 
 | https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/3 | M-05B | [#578](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/578) | Fix dna generation in mintFromMergingPool |  
 | https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/9 | M-06 | [#137](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/137) | Mititgation for NFTs can be transferred even if StakeAtRisk remains, so the user's win cannot be recorded on the chain due to underflow, and can recover past losses that can't be recovered(steal protocol's token) |
-
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/18 | M-08 | [#47](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/47) |  | 
 
 ### Additional scope to be reviewed
 
@@ -84,13 +93,8 @@ These are additional changes that will be in scope.
 
 ## Out of Scope
 
-- [H-04: Since you can reroll with a different fighterType than the NFT you own, you can reroll bypassing maxRerollsAllowed and reroll attributes based on a different fighterType](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/306)
 - [H-05: Malicious user can stake an amount which causes zero curStakeAtRisk on a loss but equal rewardPoints to a fair user on a win](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/116)
-- [H-07:Fighters cannot be minted after the initial generation due to uninitialized numElements mapping](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/45)
-- [H-08: Player can mint more fighter NFTs during claim of rewards by leveraging reentrancy on the claimRewards() function](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/37)
 - [M-01: Almost all rarity rank combinations cannot be, and are not uniformly, generated](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/1979)
 - [M-02: Minter / Staker / Spender roles can never be revoked`..,](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/1507)
-- [M-03: Fighter created by mintFromMergingPool can have arbitrary weight and element](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/932)
 - [M-07: Erroneous probability calculation in physical attributes can lead to significant issues](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/112)
-- [M-08: Burner role can not be revoked](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/47)
 - [M-09: Constraints of dailyAllowanceReplenishTime and allowanceRemaining during mint() can be bypassed by using alias accounts & safeTransferFrom()](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/43)

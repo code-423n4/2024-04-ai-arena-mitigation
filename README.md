@@ -69,7 +69,7 @@ Areas of specific concern would be:
 | https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/1 | H-06 | [#68](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/68) | Fixed reRoll for fighters with tokenIds greater than 255 | 
 | https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/7 | H-07 | [#45](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/45) |  | 
 | https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/6 | H-08 | [#37](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/37) |  | 
-| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/16/files#diff-b7b791431bf00bf243ef885bca223669bc5c7970e24202017c3736b65c62ed1fR159-R160 | M-03 | [#932](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/932) |  | 
+| https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/16 | M-03 | [#932](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/932) |  | 
 | https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/12 | M-04 | [#868](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/868) | Mitigation for DoS in MergingPool::claimRewards function and potential DoS in RankedBattle::claimNRN function if called after a significant amount of rounds passed.|
 | https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/11 | M-05A | [#1017](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/1017) | Updated dna generation in reRoll and updated dna generation in claimFighters | 
 | https://github.com/ArenaX-Labs/2024-02-ai-arena-mitigation/pull/3 | M-05B | [#578](https://github.com/code-423n4/2024-02-ai-arena-findings/issues/578) | Fix dna generation in mintFromMergingPool |  
